@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+		<title>Login and Registration</title>
+		<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ninjas_stylesheet.css') }}"> -->
+	</head>
+<body>
+
+  		{% with errors = get_flashed_messages(category_filter=["error"]) %}
+				{% if errors %}
+		  	<ul>
+  				{%- for msg in errors %}
+    				<li>{{ msg }}</li>
+    					{% endfor %}
+ 			 </ul>
+				{% endif %}
+			{% endwith %}
+
+	<h2>Register</h2>
+	<form action='/register' method='POST'>
+<label for="First name">First name:<input type="text" name="first_name" id="first_name"></label>
+<label for="Last name">Last name:<input type="text" name="last_name" id="last_name"></label>
+<label for="Email">Email:<input type="text" name="email" id="email"></label>
+<label for="Password">Password:<input type="password" name="password" id="password"></label>
+<label for="Confirm Password">Confirm Password:<input type="password" name="confirm_password" id="confirm_password"></label>
+	<input type="submit" value="Register">
+		</form>
+
+
+	<h2>Login</h2>
+	<form action='/login' method='POST'>
+<label for="Email">Email:<input type="text" name="email" id="email"></label>
+<label for="Password">Password:<input type="password" name="password" id="password"></label>
+	<input type="submit" value="login">
+		</form>
+		<a href='/reset'>reset</a>
+</body>
+</html>

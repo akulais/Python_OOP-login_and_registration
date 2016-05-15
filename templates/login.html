@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+		<title>Login</title>
+		<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ninjas_stylesheet.css') }}"> -->
+	</head>
+<body>
+			{% with success = get_flashed_messages(category_filter=["true"]) %}
+  				{% if success %}
+    		<ul>
+    			{% for msg in success %}
+      			<li>{{ msg }}</li>
+    				{% endfor %}
+    		</ul>
+  				{% endif %}
+				{% endwith %}
+
+		</form>
+		<a href='/reset'>reset</a>
+</body>
+</html>
